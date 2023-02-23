@@ -1,5 +1,8 @@
 package gmevWeb.dto;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class PortatilDTO {
 
 	private Long id;
