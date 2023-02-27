@@ -11,7 +11,7 @@ import gmewApp.dao.Portatil;
 @Repository
 public interface PortatilRepository extends CrudRepository<Portatil, Long> {
 
-	@Query("SELECT p.alumno FROM Portatil p WHERE p.codigo = :codigo")
-	Alumno findAlumnoByCodigo(@Param("codigo") String codigo);
+	@Query("SELECT a.portatil FROM Alumno a WHERE a.codAlumno = :codAlumno")
+	Portatil findPortatilByCodigoAlumno(@Param("codAlumno") String codAlumno);
 
 }

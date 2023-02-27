@@ -38,6 +38,19 @@ public class Alumno {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "portatil_id")
 	private Portatil portatil;
+	
+	@Column(name = "codigo_alumno")
+	private String codAlumno;
+	
+	
+
+	public String getCodAlumno() {
+		return codAlumno;
+	}
+
+	public void setCodAlumno(String codAlumno) {
+		this.codAlumno = codAlumno;
+	}
 
 	public Long getId() {
 		return id;

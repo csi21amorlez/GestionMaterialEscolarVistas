@@ -19,6 +19,7 @@ public class ToDtoImpl implements ToDtoService {
 		dto.setCodigoAlumno(alumno.getCodigoAlumno());
 		dto.setNombreCompleto(alumno.getNombreCompleto());
 		dto.setNumeroTelefono(alumno.getNumeroTelefono());
+		dto.setCodAlumno(alumno.getCodAlumno());
 		if (alumno.getPortatil() != null) {
 			dto.setPortatilId(alumno.getPortatil().getId());
 		}

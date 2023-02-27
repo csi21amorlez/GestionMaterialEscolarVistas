@@ -19,6 +19,7 @@ public class DtoToImpl implements DtoToService {
 		alumno.setCodigoAlumno(dto.getCodigoAlumno());
 		alumno.setNombreCompleto(dto.getNombreCompleto());
 		alumno.setNumeroTelefono(dto.getNumeroTelefono());
+		alumno.setCodAlumno(dto.getCodAlumno());
 		return alumno;
 	}
 

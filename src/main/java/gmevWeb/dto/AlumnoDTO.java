@@ -10,6 +10,17 @@ public class AlumnoDTO {
 	private String nombreCompleto;
 	private String numeroTelefono;
 	private Long portatilId;
+	private String codAlumno;
+	
+	
+
+	public String getCodAlumno() {
+		return codAlumno;
+	}
+
+	public void setCodAlumno(String codAlumno) {
+		this.codAlumno = codAlumno;
+	}
 
 	public Long getId() {
 		return id;
