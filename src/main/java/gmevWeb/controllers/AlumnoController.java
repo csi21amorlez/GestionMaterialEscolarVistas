@@ -33,7 +33,7 @@ public class AlumnoController {
 	@GetMapping(value = "/")
 	public String findPortatilByAlumno(Model model, @RequestParam String codPortatil) {
 
-		AlumnoDTO alumno = toDto.AlumnoToDto(alumnoRepo.findAlumnoByPortatil(codPortatil));
+		AlumnoDTO alumno = alumnoRepo.findAlumnoByPortatil(codPortatil);
 
 		if (alumno != null) {
 			model.addAttribute("alumno", alumno);

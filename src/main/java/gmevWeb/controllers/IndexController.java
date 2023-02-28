@@ -35,7 +35,7 @@ public class IndexController {
 	public ModelAndView navAlumnos() {
 
 		try {
-			ArrayList<AlumnoDTO> listAlumnos = toDto.ListAlumnoToDto((ArrayList<Alumno>) alumnoRepo.findAll());
+			ArrayList<AlumnoDTO> listAlumnos = alumnoRepo.findAll();
 			return new ModelAndView("alumnos", "listAlumnos", listAlumnos);
 		} catch (Exception e) {
 			return new ModelAndView("alumnos", "listAlumnos", "Error cargando la lista de alumnos");
@@ -46,8 +46,7 @@ public class IndexController {
 	public ModelAndView navPortatiles() {
 
 		try {
-			ArrayList<PortatilDTO> listPortatiles = toDto
-					.ListPortatilToDto((ArrayList<Portatil>) portatilRepo.buscarTodos());
+			ArrayList<PortatilDTO> listPortatiles = portatilRepo.buscarTodos();
 			return new ModelAndView("portatiles", "listPortatiles", listPortatiles);
 
 		} catch (Exception e) {

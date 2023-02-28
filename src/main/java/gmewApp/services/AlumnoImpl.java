@@ -4,18 +4,25 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import gmevWeb.dto.AlumnoDTO;
 import gmewApp.dao.Alumno;
+import gmewApp.dto.converters.DtoToImpl;
+import gmewApp.dto.converters.ToDtoImpl;
 import gmewApp.repositories.AlumnoRepository;
 
 public class AlumnoImpl implements AlumnoService {
 
 	@Autowired
 	AlumnoRepository alumnoRepo;
+	@Autowired
+	ToDtoImpl toDto;
+	@Autowired
+	DtoToImpl dtoTp;
 
 	@Override
-	public ArrayList<Alumno> findAll() {
+	public ArrayList<AlumnoDTO> findAll() {
 		try {
-			return (ArrayList<Alumno>) alumnoRepo.findAll();
+			return toDto.ListAlumnoToDto((ArrayList<Alumno>) alumnoRepo.findAll());
 		} catch (Exception e) {
 			return null;
 		}
@@ -43,9 +50,9 @@ public class AlumnoImpl implements AlumnoService {
 	}
 
 	@Override
-	public Alumno findAlumnoByPortatil(String codPortatil) {
+	public AlumnoDTO findAlumnoByPortatil(String codPortatil) {
 		try {
-			return (Alumno) alumnoRepo.findAlumnoByCodigoPortatil(codPortatil);
+			return toDto.AlumnoToDto(alumnoRepo.findAlumnoByCodigoPortatil(codPortatil));
 		} catch (Exception e) {
 			return null;
 		}

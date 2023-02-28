@@ -25,7 +25,7 @@ public class PortatilController {
 	public String findPortatilByAlumno(Model model, @RequestParam String codAlumno) {
 
 		try {
-			PortatilDTO portatil = toDto.PortatilToDto(portatilRepo.findPortatilByAlumno(codAlumno));
+			PortatilDTO portatil = portatilRepo.findPortatilByAlumno(codAlumno);
 			model.addAttribute("modelPortatil", portatil);
 		} catch (Exception e) {
 			// TODO: handle exception

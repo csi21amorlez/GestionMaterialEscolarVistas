@@ -4,19 +4,26 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import gmevWeb.dto.PortatilDTO;
 import gmewApp.dao.Alumno;
 import gmewApp.dao.Portatil;
+import gmewApp.dto.converters.DtoToImpl;
+import gmewApp.dto.converters.ToDtoImpl;
 import gmewApp.repositories.PortatilRepository;
 
 public class PortatilImpl implements PortatilService{
 	
 	@Autowired
 	PortatilRepository portatilRepo;
+	@Autowired
+	ToDtoImpl toDto;
+	@Autowired
+	DtoToImpl dtoTo;
 
 	@Override
-	public ArrayList<Portatil> buscarTodos() {
+	public ArrayList<PortatilDTO> buscarTodos() {
 		try {
-			return (ArrayList<Portatil>) portatilRepo.findAll();
+			return toDto.ListPortatilToDto((ArrayList<Portatil>) portatilRepo.findAll());
 			
 		}catch (Exception e) {
 			return null;
@@ -44,9 +51,9 @@ public class PortatilImpl implements PortatilService{
 	}
 
 	@Override
-	public Portatil findPortatilByAlumno(String codAlumno) {
+	public PortatilDTO findPortatilByAlumno(String codAlumno) {
 		try {
-			return (Portatil) portatilRepo.findPortatilByCodigoAlumno(codAlumno);
+			return toDto.PortatilToDto(portatilRepo.findPortatilByCodigoAlumno(codAlumno));
 		}catch (Exception e) {
 			return null;
 		}
