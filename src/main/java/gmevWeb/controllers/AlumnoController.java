@@ -2,6 +2,7 @@ package gmevWeb.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,13 +14,13 @@ import gmewApp.services.AlumnoImpl;
 
 @RequestMapping(value = "Alumnos")
 public class AlumnoController {
-	
+
 	@Autowired
 	AlumnoImpl alumnoRepo;
 	@Autowired
 	ToDtoImpl toDto;
-	
-	
+
+	@RequestMapping(value = "navFormAlumno")
 	public ModelAndView navFormAlumno() {
 		try {
 			AlumnoDTO alumno = new AlumnoDTO();
@@ -29,20 +30,19 @@ public class AlumnoController {
 
 		}
 	}
-
+	@GetMapping(value = "/")
 	public String findPortatilByAlumno(Model model, @RequestParam String codPortatil) {
 
-		try {
-			AlumnoDTO alumno = toDto.AlumnoToDto(alumnoRepo.findAlumnoByPortatil(codPortatil));
-			model.addAttribute("modelAlumno", alumno);
-		} catch (Exception e) {
-			// TODO: handle exception
+		AlumnoDTO alumno = toDto.AlumnoToDto(alumnoRepo.findAlumnoByPortatil(codPortatil));
 
+		if (alumno != null) {
+			model.addAttribute("alumno", alumno);
+		} else {
+			model.addAttribute("mensaje",
+					"No se encontró ningún alumno asignado al portátil con código " + codPortatil);
 		}
 
-		return "portatilByAlumno";
-
+		return "vista-buscar-alumno-por-portatil";
 	}
-	
 
 }
