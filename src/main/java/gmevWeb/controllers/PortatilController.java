@@ -7,35 +7,35 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import gmevWeb.dto.PortatilDTO;
-import gmevWeb.dto.converters.DtoToImpl;
-import gmevWeb.dto.converters.ToDtoImpl;
-import gmewApp.repositories.PortatilRepository;
+import gmewApp.dto.converters.DtoToImpl;
+import gmewApp.dto.converters.ToDtoImpl;
+import gmewApp.services.PortatilImpl;
 
 @RequestMapping("/portatiles")
 public class PortatilController {
-	
+
 	@Autowired
-	PortatilRepository portatilRepo;
+	PortatilImpl portatilRepo;
 	@Autowired
 	ToDtoImpl toDto;
 	@Autowired
 	DtoToImpl dtoTo;
-	
+
 	@RequestMapping(value = "findPortatilByAlumno")
 	public String findPortatilByAlumno(Model model, @RequestParam String codAlumno) {
-		
+
 		try {
-			PortatilDTO portatil = toDto.PortatilToDto(portatilRepo.findPortatilByCodigoAlumno(codAlumno));
-			model.addAttribute("modelPortatil", portatil);		
+			PortatilDTO portatil = toDto.PortatilToDto(portatilRepo.findPortatilByAlumno(codAlumno));
+			model.addAttribute("modelPortatil", portatil);
 		} catch (Exception e) {
 			// TODO: handle exception
-			
-		}		
-		
+
+		}
+
 		return "portatilByAlumno";
-		
+
 	}
-	
+
 	@RequestMapping(value = "navFormPortatil")
 	public ModelAndView navFormPortatil() {
 		try {
@@ -46,8 +46,5 @@ public class PortatilController {
 			return new ModelAndView("formPortatil", "portatil", null);
 		}
 	}
-	
-	
-	
 
 }

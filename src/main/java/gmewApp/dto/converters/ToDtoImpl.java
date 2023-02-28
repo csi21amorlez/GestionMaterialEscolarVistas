@@ -1,5 +1,4 @@
-package gmevWeb.dto.converters;
-
+package gmewApp.dto.converters;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;

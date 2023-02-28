@@ -4,26 +4,28 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import gmevWeb.dto.AlumnoDTO;
 import gmevWeb.dto.PortatilDTO;
-import gmevWeb.dto.converters.DtoToImpl;
-import gmevWeb.dto.converters.ToDtoImpl;
+
 import gmewApp.dao.Alumno;
 import gmewApp.dao.Portatil;
+import gmewApp.dto.converters.DtoToImpl;
+import gmewApp.dto.converters.ToDtoImpl;
 import gmewApp.repositories.AlumnoRepository;
 import gmewApp.repositories.PortatilRepository;
+import gmewApp.services.AlumnoImpl;
+import gmewApp.services.PortatilImpl;
 
 @Controller
 public class IndexController {
 
 	@Autowired
-	AlumnoRepository alumnoRepo;
+	AlumnoImpl alumnoRepo;
 	@Autowired
-	PortatilRepository portatilRepo;
+	PortatilImpl portatilRepo;
 	@Autowired
 	ToDtoImpl toDto;
 	@Autowired
@@ -45,7 +47,7 @@ public class IndexController {
 
 		try {
 			ArrayList<PortatilDTO> listPortatiles = toDto
-					.ListPortatilToDto((ArrayList<Portatil>) portatilRepo.findAll());
+					.ListPortatilToDto((ArrayList<Portatil>) portatilRepo.buscarTodos());
 			return new ModelAndView("portatiles", "listPortatiles", listPortatiles);
 
 		} catch (Exception e) {
