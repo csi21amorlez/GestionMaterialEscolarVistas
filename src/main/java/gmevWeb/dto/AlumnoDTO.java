@@ -1,4 +1,4 @@
-package gmewApp.dto;
+package gmevWeb.dto;
 
 import org.springframework.stereotype.Component;
 
@@ -27,9 +27,6 @@ public class AlumnoDTO {
 	/** The portatil. */
 	private PortatilDTO portatil;
 
-	/** The cod alumno. */
-	private String codAlumno;
-
 	/**
 	 * Gets the portatil.
 	 *
@@ -48,24 +45,7 @@ public class AlumnoDTO {
 		this.portatil = portatil;
 	}
 
-	/**
-	 * Gets the cod alumno.
-	 *
-	 * @return the cod alumno
-	 */
-	public String getCodAlumno() {
-		return codAlumno;
-	}
-
-	/**
-	 * Sets the cod alumno.
-	 *
-	 * @param codAlumno the new cod alumno
-	 */
-	public void setCodAlumno(String codAlumno) {
-		this.codAlumno = codAlumno;
-	}
-
+	
 	/**
 	 * Gets the id.
 	 *

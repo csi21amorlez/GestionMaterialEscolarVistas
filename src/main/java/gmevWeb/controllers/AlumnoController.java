@@ -1,6 +1,8 @@
 package gmevWeb.controllers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -12,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import gmewApp.dto.AlumnoDTO;
-import gmewApp.dto.PortatilDTO;
-import gmewApp.dto.converters.DtoToImpl;
-import gmewApp.dto.converters.ToDtoImpl;
-import gmewApp.services.AlumnoImpl;
-import gmewApp.services.PortatilImpl;
+import gmevWeb.dto.AlumnoDTO;
+import gmevWeb.dto.PortatilDTO;
+import gmevWeb.dto.converters.DtoToImpl;
+import gmevWeb.dto.converters.ToDtoImpl;
+import gmevWeb.services.AlumnoImpl;
+import gmevWeb.services.PortatilImpl;
 
 @Controller
 public class AlumnoController {
@@ -37,10 +39,13 @@ public class AlumnoController {
 	public ModelAndView navFormAlumno() {
 		try {
 			AlumnoDTO alumno = new AlumnoDTO();
-			return new ModelAndView("formAlumno", "alumno", alumno);
+			Map<String, Object> model = new HashMap<String, Object>();
+			ArrayList<PortatilDTO> listPortatil = portatilRepo.buscarTodos();
+			model.put("alumno", alumno);
+			model.put("listPortatil", listPortatil);
+			return new ModelAndView("formAlumno", "model", model);
 		} catch (Exception e) {
 			return new ModelAndView("formAlumno", "alumno", "Error creando el alumno");
-
 		}
 	}
 
@@ -50,14 +55,13 @@ public class AlumnoController {
 		AlumnoDTO alumno = alumnoRepo.findAlumnoByPortatil(codPortatil);
 
 		if (alumno != null) {
-			log.info(alumno.toString());
 			model.addAttribute("alumno", alumno);
 		} else {
 			model.addAttribute("mensaje",
 					"No se encontró ningún alumno asignado al portátil con código " + codPortatil);
 		}
 
-		return "alumnoByPortatil";
+		return "redirect:alumnoByPortatil";
 	}
 
 	@RequestMapping(value = "/listAlumnos")
@@ -82,7 +86,7 @@ public class AlumnoController {
 	public String eliminarAlumno(@Param(value = "alumno") AlumnoDTO a) {
 		try {
 			alumnoRepo.deleteAlumno(dtoTo.AlumnoDtoToDao(a));
-			return "alumnos";
+			return "redirect:alumnos";
 		} catch (Exception e) {
 			// TODO: handle exception
 			return null;

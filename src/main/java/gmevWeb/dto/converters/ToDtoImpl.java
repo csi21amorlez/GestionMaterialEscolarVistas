@@ -1,10 +1,10 @@
-package gmewApp.dto.converters;
+package gmevWeb.dto.converters;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;
 
-import gmewApp.dto.AlumnoDTO;
-import gmewApp.dto.PortatilDTO;
+import gmevWeb.dto.AlumnoDTO;
+import gmevWeb.dto.PortatilDTO;
 import gmewApp.dao.Alumno;
 import gmewApp.dao.Portatil;
 
@@ -18,7 +18,7 @@ public class ToDtoImpl implements ToDtoService {
 		dto.setCodigoAlumno(alumno.getCodAlumno());
 		dto.setNombreCompleto(alumno.getNombreCompleto());
 		dto.setNumeroTelefono(alumno.getNumeroTelefono());
-		dto.setCodAlumno(alumno.getCodAlumno());
+		dto.setCodigoAlumno(alumno.getCodAlumno());
 		if (alumno.getPortatil() != null) {
 			dto.setPortatilId(alumno.getPortatil().getId());
 		}

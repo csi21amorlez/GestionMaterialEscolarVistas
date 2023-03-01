@@ -1,8 +1,8 @@
-package gmewApp.services;
+package gmevWeb.services;
 
 import java.util.ArrayList;
 
-import gmewApp.dto.PortatilDTO;
+import gmevWeb.dto.PortatilDTO;
 import gmewApp.dao.Portatil;
 
 // TODO: Auto-generated Javadoc

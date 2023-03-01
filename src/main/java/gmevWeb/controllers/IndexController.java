@@ -7,13 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import gmewApp.dto.AlumnoDTO;
-import gmewApp.dto.PortatilDTO;
+import gmevWeb.dto.AlumnoDTO;
+import gmevWeb.dto.PortatilDTO;
+import gmevWeb.dto.converters.DtoToImpl;
+import gmevWeb.dto.converters.ToDtoImpl;
+import gmevWeb.services.AlumnoImpl;
+import gmevWeb.services.PortatilImpl;
 
-import gmewApp.dto.converters.DtoToImpl;
-import gmewApp.dto.converters.ToDtoImpl;
-import gmewApp.services.AlumnoImpl;
-import gmewApp.services.PortatilImpl;
+
 
 @Controller
 public class IndexController {

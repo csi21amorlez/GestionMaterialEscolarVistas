@@ -1,17 +1,19 @@
-package gmewApp.dto.converters;
+package gmevWeb.dto.converters;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.UUID;
 
 import org.springframework.stereotype.Component;
 
-
+import gmevWeb.dto.AlumnoDTO;
+import gmevWeb.dto.PortatilDTO;
 import gmewApp.dao.Alumno;
 import gmewApp.dao.Portatil;
-import gmewApp.dto.AlumnoDTO;
-import gmewApp.dto.PortatilDTO;
 
 @Component
 public class DtoToImpl implements DtoToService {
+	private UUID mdUuid = UUID.randomUUID();
 
 	@Override
 	public Alumno AlumnoDtoToDao(AlumnoDTO dto) {
@@ -20,7 +22,10 @@ public class DtoToImpl implements DtoToService {
 		alumno.setCodAlumno(dto.getCodigoAlumno());
 		alumno.setNombreCompleto(dto.getNombreCompleto());
 		alumno.setNumeroTelefono(dto.getNumeroTelefono());
-		alumno.setCodAlumno(dto.getCodAlumno());
+		alumno.setCodAlumno(dto.getCodigoAlumno());
+		alumno.setMdDate(Calendar.getInstance());
+		alumno.setMdUuid(mdUuid.toString());
+		System.out.println(dto.getCodigoAlumno());
 		return alumno;
 	}
 
@@ -40,6 +45,8 @@ public class DtoToImpl implements DtoToService {
 		portatil.setMarca(dto.getMarca());
 		portatil.setCodigo(dto.getCodigo());
 		portatil.setModelo(dto.getModelo());
+		portatil.setMdDate(Calendar.getInstance());
+		portatil.setMdUuid(mdUuid.toString());
 		return portatil;
 	}
 

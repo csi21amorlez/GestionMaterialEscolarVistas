@@ -3,23 +3,31 @@
 <head>
     <title>Buscar alumno por portátil</title>
 </head>
-<body>
-    <h1>Buscar alumno por portátil</h1>
+<body class="container">
 
-    <form method="GET" action="findAlumnoByPortatil">
-        <label>Código del portátil:</label>
-        <input type="text" name="codPortatil" />
-        <button type="submit">Buscar</button>
-    </form>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="my-5">Buscar alumno por portátil</h1>
 
-    <hr />
+            <form method="GET" action="findAlumnoByPortatil" class="my-4">
+                <div class="form-group">
+                    <label for="codPortatil">Código del portátil:</label>
+                    <input type="text" name="codPortatil" id="codPortatil" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
 
-    <c:if test="${not empty alumno}">
-        <p>El alumno asignado al portátil es: ${alumno.nombreCompleto} (Código: ${alumno.codAlumno})</p>
-    </c:if>
+            <hr />
 
-    <c:if test="${not empty mensaje}">
-        <p>${mensaje}</p>
-    </c:if>
+            <c:if test="${not empty alumno}">
+                <p>El alumno asignado al portátil es: ${alumno.nombreCompleto} (Código: ${alumno.codAlumno})</p>
+            </c:if>
+
+            <c:if test="${not empty mensaje}">
+                <p>${mensaje}</p>
+            </c:if>
+        </div>
+    </div>
+
 </body>
 </html>

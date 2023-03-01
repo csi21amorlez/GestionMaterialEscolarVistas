@@ -1,4 +1,4 @@
-package gmewApp.dto;
+package gmevWeb.dto;
 
 import org.springframework.stereotype.Component;
 
