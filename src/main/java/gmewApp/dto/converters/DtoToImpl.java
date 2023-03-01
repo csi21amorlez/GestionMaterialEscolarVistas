@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;
 
-import gmevWeb.dto.AlumnoDTO;
-import gmevWeb.dto.PortatilDTO;
+
 import gmewApp.dao.Alumno;
 import gmewApp.dao.Portatil;
+import gmewApp.dto.AlumnoDTO;
+import gmewApp.dto.PortatilDTO;
 
 @Component
 public class DtoToImpl implements DtoToService {
@@ -16,7 +17,7 @@ public class DtoToImpl implements DtoToService {
 	public Alumno AlumnoDtoToDao(AlumnoDTO dto) {
 		Alumno alumno = new Alumno();
 		alumno.setId(dto.getId());
-		alumno.setCodigoAlumno(dto.getCodigoAlumno());
+		alumno.setCodAlumno(dto.getCodigoAlumno());
 		alumno.setNombreCompleto(dto.getNombreCompleto());
 		alumno.setNumeroTelefono(dto.getNumeroTelefono());
 		alumno.setCodAlumno(dto.getCodAlumno());

@@ -6,16 +6,16 @@
 <body>
     <h1>Buscar alumno por portátil</h1>
 
-    <form method="GET" action="/portatiles/buscarAlumnoPorPortatil">
+    <form method="GET" action="findAlumnoByPortatil">
         <label>Código del portátil:</label>
-        <input type="text" name="codigoPortatil" />
+        <input type="text" name="codPortatil" />
         <button type="submit">Buscar</button>
     </form>
 
     <hr />
 
     <c:if test="${not empty alumno}">
-        <p>El alumno asignado al portátil es: ${alumno.nombreCompleto} (Código: ${alumno.codigoAlumno})</p>
+        <p>El alumno asignado al portátil es: ${alumno.nombreCompleto} (Código: ${alumno.codAlumno})</p>
     </c:if>
 
     <c:if test="${not empty mensaje}">

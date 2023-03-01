@@ -1,12 +1,12 @@
 package gmevWeb.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import gmevWeb.dto.PortatilDTO;
+import gmewApp.dto.PortatilDTO;
 import gmewApp.dto.converters.DtoToImpl;
 import gmewApp.dto.converters.ToDtoImpl;
 import gmewApp.services.PortatilImpl;
@@ -22,7 +22,7 @@ public class PortatilController {
 	DtoToImpl dtoTo;
 
 	@RequestMapping(value = "findPortatilByAlumno")
-	public String findPortatilByAlumno(Model model, @RequestParam String codAlumno) {
+	public String findPortatilByAlumno(Model model, @Param(value = "codAlumno") String codAlumno) {
 
 		try {
 			PortatilDTO portatil = portatilRepo.findPortatilByAlumno(codAlumno);

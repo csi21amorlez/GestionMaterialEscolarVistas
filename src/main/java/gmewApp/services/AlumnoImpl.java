@@ -3,13 +3,15 @@ package gmewApp.services;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import gmevWeb.dto.AlumnoDTO;
+import gmewApp.dto.AlumnoDTO;
 import gmewApp.dao.Alumno;
 import gmewApp.dto.converters.DtoToImpl;
 import gmewApp.dto.converters.ToDtoImpl;
 import gmewApp.repositories.AlumnoRepository;
 
+@Component
 public class AlumnoImpl implements AlumnoService {
 
 	@Autowired
@@ -26,7 +28,6 @@ public class AlumnoImpl implements AlumnoService {
 		} catch (Exception e) {
 			return null;
 		}
-
 	}
 
 	@Override
@@ -40,13 +41,11 @@ public class AlumnoImpl implements AlumnoService {
 
 	@Override
 	public void deleteAlumno(Alumno alumno) {
-
 		try {
 			alumnoRepo.delete(alumno);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-
 	}
 
 	@Override

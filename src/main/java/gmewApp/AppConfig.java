@@ -19,15 +19,25 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 import gmewApp.dao.Alumno;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AppConfig.
+ */
 @Configuration
 @ComponentScan
 @PropertySource("classpath:application.properties")
 @EnableJpaRepositories("gmewApp.repositories")
 public class AppConfig {
 
+	/** The ev. */
 	@Autowired
 	private Environment ev;
 
+	/**
+	 * Data source.
+	 *
+	 * @return the data source
+	 */
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource ds = new DriverManagerDataSource();
@@ -38,6 +48,11 @@ public class AppConfig {
 		return ds;
 	}
 
+	/**
+	 * Entity manager factory.
+	 *
+	 * @return the local container entity manager factory bean
+	 */
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 
@@ -61,6 +76,11 @@ public class AppConfig {
 		return emf;
 	}
 
+	/**
+	 * Transaction manager.
+	 *
+	 * @return the jpa transaction manager
+	 */
 	@Bean
 	public JpaTransactionManager transactionManager() {
 		JpaTransactionManager tm = new JpaTransactionManager();

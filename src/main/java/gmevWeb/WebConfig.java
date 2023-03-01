@@ -8,11 +8,20 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class WebConfig.
+ */
 @Configuration
 @ComponentScan
 @EnableWebMvc
 public class WebConfig {
 	
+    /**
+     * Mapeo.
+     *
+     * @return the view resolver
+     */
     @Bean
     public ViewResolver mapeo() {
         InternalResourceViewResolver irvr = new InternalResourceViewResolver();

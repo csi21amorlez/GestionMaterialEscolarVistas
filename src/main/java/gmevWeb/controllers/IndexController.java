@@ -7,15 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import gmevWeb.dto.AlumnoDTO;
-import gmevWeb.dto.PortatilDTO;
+import gmewApp.dto.AlumnoDTO;
+import gmewApp.dto.PortatilDTO;
 
-import gmewApp.dao.Alumno;
-import gmewApp.dao.Portatil;
 import gmewApp.dto.converters.DtoToImpl;
 import gmewApp.dto.converters.ToDtoImpl;
-import gmewApp.repositories.AlumnoRepository;
-import gmewApp.repositories.PortatilRepository;
 import gmewApp.services.AlumnoImpl;
 import gmewApp.services.PortatilImpl;
 
@@ -31,7 +27,7 @@ public class IndexController {
 	@Autowired
 	DtoToImpl dtoTo;
 
-	@RequestMapping(value = "alumnos")
+	@RequestMapping(value = "/alumnos")
 	public ModelAndView navAlumnos() {
 
 		try {
@@ -42,7 +38,7 @@ public class IndexController {
 		}
 	}
 
-	@RequestMapping(value = "portatiles")
+	@RequestMapping(value = "/portatiles")
 	public ModelAndView navPortatiles() {
 
 		try {
