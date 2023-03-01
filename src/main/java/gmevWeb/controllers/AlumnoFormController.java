@@ -18,6 +18,12 @@ public class AlumnoFormController {
 	@Autowired
 	AlumnoImpl alumnoRepo;
 
+	/**
+	 * Se encarga de guardar el alumno en base de datos.
+	 *
+	 * @param alumno alumno
+	 * @return redirección a la vista alumnos
+	 */
 	@RequestMapping(value = "/guardarAlumno", method = RequestMethod.POST)
 	public String guardarAlumno(@ModelAttribute("alumno") AlumnoDTO alumno) {
 

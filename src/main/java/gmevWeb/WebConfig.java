@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class WebConfig.
+ * Configuracion basica del contexto para la capa web.
  */
 @Configuration
 @ComponentScan

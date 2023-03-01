@@ -21,7 +21,7 @@ import gmewApp.dao.Alumno;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class AppConfig.
+ * Configuracion general del contexto de la aplicacion.
  */
 @Configuration
 @ComponentScan

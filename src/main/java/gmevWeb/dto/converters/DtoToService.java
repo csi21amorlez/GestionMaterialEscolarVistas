@@ -9,7 +9,7 @@ import gmewApp.dao.Portatil;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface DtoToService.
+ * Interfaz de la clase convertidora de objetos DTO a DAO.
  */
 public interface DtoToService {
 

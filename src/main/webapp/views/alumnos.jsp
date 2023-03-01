@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Listado de alumnos</title>
+<script src="../scripts/script.js"></script>
 
 </head>
 <body>
@@ -35,9 +36,9 @@
                                 ${a.portatil.marca} ${a.portatil.modelo} (${a.portatil.codigo})
                             </c:if></td>
 						<td>
-							<form method="post" action="eliminarAlumno">
+							<form method="post" action="eliminarAlumno" id="eliminarAlumno">
 								<input type="hidden" name="id" value="${a.id}" />
-								<button type="submit" class="btn btn-danger">Eliminar</button>
+								<button type="submit" class="btn btn-danger" onclick="confirmarEliminacion()">Eliminar</button>
 							</form>
 						</td>
 					</tr>

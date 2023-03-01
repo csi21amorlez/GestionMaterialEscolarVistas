@@ -16,18 +16,34 @@ import gmevWeb.services.PortatilImpl;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class IndexController.
+ */
 @Controller
 public class IndexController {
 
+
 	@Autowired
 	AlumnoImpl alumnoRepo;
+	
+	
 	@Autowired
 	PortatilImpl portatilRepo;
+	
+
 	@Autowired
 	ToDtoImpl toDto;
+	
+	
 	@Autowired
 	DtoToImpl dtoTo;
 
+	/**
+	 * Navegacion a la vista principal de alumnos.
+	 *
+	 * @return ModelAndView(nombreVista, nombreModelo, objetoModelo)
+	 */
 	@RequestMapping(value = "/alumnos")
 	public ModelAndView navAlumnos() {
 
@@ -39,6 +55,11 @@ public class IndexController {
 		}
 	}
 
+	/**
+	 * Navegacion a la vista principal de portatiles.
+	 *
+	 * @return ModelAndView(nombreVista, nombreModelo, objetoModelo)
+	 */
 	@RequestMapping(value = "/portatiles")
 	public ModelAndView navPortatiles() {
 

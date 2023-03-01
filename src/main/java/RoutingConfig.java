@@ -6,7 +6,7 @@ import gmewApp.AppConfig;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class RoutingConfig.
+ * Configuracion de enrutado de las solicitudes.
  */
 public class RoutingConfig extends AbstractAnnotationConfigDispatcherServletInitializer{
 

@@ -7,7 +7,7 @@ import gmewApp.dao.Portatil;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface PortatilService.
+ * Interfaz que define que funcionalidad tendra la entidad Portatil.
  */
 public interface PortatilService {
 
@@ -33,13 +33,18 @@ public interface PortatilService {
 	public void deletePortatil(Portatil portatil);
 
 	/**
-	 * Find portatil by alumno.
+	 * Buscar portatil por el codigo del alumno al cual esta asignado.
 	 *
 	 * @param codAlumno the cod alumno
 	 * @return the portatil DTO
 	 */
 	public PortatilDTO findPortatilByAlumno(String codAlumno);
-	
+	/**
+	 * Buscar portatil por su id.
+	 *
+	 * @param long id
+	 * @return the portatil DTO
+	 */
 	public PortatilDTO findById(Long id);
 
 }

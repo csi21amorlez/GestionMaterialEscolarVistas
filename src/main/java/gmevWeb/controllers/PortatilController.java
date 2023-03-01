@@ -12,16 +12,32 @@ import gmevWeb.dto.converters.DtoToImpl;
 import gmevWeb.dto.converters.ToDtoImpl;
 import gmevWeb.services.PortatilImpl;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PortatilController.
+ */
 @Controller
 public class PortatilController {
 
+	
 	@Autowired
 	PortatilImpl portatilRepo;
+	
+	
 	@Autowired
 	ToDtoImpl toDto;
+	
+	
 	@Autowired
 	DtoToImpl dtoTo;
 
+	/**
+	 * Navegación a la vista findPortatilByAlumno.
+	 *
+	 * @param model model
+	 * @param codAlumno codigo del alumno a buscar
+	 * @return redireccion a la vista portatilByAlumno
+	 */
 	@RequestMapping(value = "/findPortatilByAlumno")
 	public String findPortatilByAlumno(Model model, @Param(value = "codAlumno") String codAlumno) {
 
@@ -37,6 +53,11 @@ public class PortatilController {
 
 	}
 
+	/**
+	 * Navegacion al formulario de alta de portatiles.
+	 *
+	 * @return ModelAndView(nombreVista, nombreModelo, objetoModelo)
+	 */
 	@RequestMapping(value = "/navFormPortatil")
 	public ModelAndView navFormPortatil() {
 		try {
@@ -47,5 +68,5 @@ public class PortatilController {
 			return new ModelAndView("formPortatil", "portatil", null);
 		}
 	}
-
-}
+	
+ }

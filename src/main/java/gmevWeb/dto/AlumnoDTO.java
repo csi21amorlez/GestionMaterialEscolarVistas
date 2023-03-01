@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class AlumnoDTO.
+ * Clase DTO para la entidad alumno.
  */
 @Component
 public class AlumnoDTO {

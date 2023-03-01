@@ -21,20 +21,37 @@ import gmevWeb.dto.converters.ToDtoImpl;
 import gmevWeb.services.AlumnoImpl;
 import gmevWeb.services.PortatilImpl;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AlumnoController.
+ */
 @Controller
 public class AlumnoController {
 
+	
 	Log log = LogFactory.getLog(getClass());
 
+	
 	@Autowired
 	AlumnoImpl alumnoRepo;
+	
+
 	@Autowired
 	ToDtoImpl toDto;
+	
+	
 	@Autowired
 	DtoToImpl dtoTo;
+	
+
 	@Autowired
 	PortatilImpl portatilRepo;
 
+	/**
+	 * Navegación al fomrulario de alumno.
+	 *
+	 * @return ModelAndView(nombreVista, nombreModelo, objetoModelo)
+	 */
 	@RequestMapping(value = "/navFormAlumno")
 	public ModelAndView navFormAlumno() {
 		try {
@@ -49,6 +66,13 @@ public class AlumnoController {
 		}
 	}
 
+	/**
+	 * Navegación a la pagina de busqueda de alumno por el codigo del portatil.
+	 *
+	 * @param model modelo
+	 * @param codPortatil codigo del portatil
+	 * @return redireccion a la vista alumnoByPortatil
+	 */
 	@RequestMapping(value = "/findAlumnoByPortatil")
 	public String findAlumnoByPortatil(Model model, @Param(value = "codPortatil") String codPortatil) {
 
@@ -64,6 +88,12 @@ public class AlumnoController {
 		return "redirect:alumnoByPortatil";
 	}
 
+	/**
+	 * Funcionalidad para la vista principal, en la que se muestra el alumno con su portatil asignado.
+	 *
+	 * @param model modelo
+	 * @return redireccion a la vista alumnos
+	 */
 	@RequestMapping(value = "/listAlumnos")
 	public String index(Model model) {
 		try {
@@ -82,11 +112,17 @@ public class AlumnoController {
 		}
 	}
 
+	/**
+	 * Petición de eliminar el alumno.
+	 *
+	 * @param Alumno a 
+	* @return redireccion a la vista de alumnos
+	 */
 	@RequestMapping(value = "/eliminarAlumno", method = RequestMethod.POST)
 	public String eliminarAlumno(@Param(value = "alumno") AlumnoDTO a) {
 		try {
 			alumnoRepo.deleteAlumno(dtoTo.AlumnoDtoToDao(a));
-			return "redirect:alumnos";
+			return "alumnos";
 		} catch (Exception e) {
 			// TODO: handle exception
 			return null;

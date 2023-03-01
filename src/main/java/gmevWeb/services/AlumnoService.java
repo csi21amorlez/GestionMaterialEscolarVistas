@@ -9,12 +9,12 @@ import gmewApp.dao.Alumno;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface AlumnoService.
+ * Interfaz que define que funcionalidad dispondra la entidad Alumno.
  */
 public interface AlumnoService {
 	
 	/**
-	 * Find all.
+	 * Buscar todos los alumnos.
 	 *
 	 * @return the array list
 	 */
@@ -35,7 +35,7 @@ public interface AlumnoService {
 	public void deleteAlumno(Alumno alumno);
 	
 	/**
-	 * Find alumno by portatil.
+	 * Buscar alumno por el codigo del poratil que tiene asignado.
 	 *
 	 * @param codPortatil the cod portatil
 	 * @return the alumno DTO

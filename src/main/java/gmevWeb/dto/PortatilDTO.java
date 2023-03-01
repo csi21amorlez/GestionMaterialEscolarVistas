@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class PortatilDTO.
+ * Clase dto para la entidad portatil.
  */
 @Component
 public class PortatilDTO {
